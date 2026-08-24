@@ -2,9 +2,11 @@
 
 * { margin:0; padding:0; box-sizing:border-box; }
 
+html { overflow-x: hidden;}
+
 body {
   font-family: 'Inter', sans-serif;
-  background: #0b0b0c;
+  background: url(../assets/images/bg3.webp) center / cover no-repeat; width: 100%;
   background-size: cover;
   min-height: 100vh;
   display: flex;
@@ -25,21 +27,28 @@ body {
   color: #fff;
 }*/
 
-.card { background: url(../assets/images/bg3.webp) center / cover no-repeat; width: 100%; max-width: 400px; height: 100vh; padding: 20px;}
+.card { width: 100%; max-width: 400px; height: 100vh; background: linear-gradient(to bottom, #0b0b0c, #c8ff3d 15%, #c8ff3d); display: grid;}
 
-.header { text-align: center; margin-bottom: 20px; }
-.avatar { width: 90px; height: 90px; border-radius: 50%; border: 2px solid #c8ff3d; }
-.header h1 { margin-top: 12px; font-size: 24px; color: white;}
-.header p { color: #aaa; font-size: 14px; margin: 4px 0; }
-.badge { background: #c8ff3d; color: #0b0b0c; padding: 4px 12px; border-radius: 20px; font-size: 10px; font-weight: 800; }
+button { cursor: pointer;}
 
-.contact-actions { display: flex; gap: 10px; margin: 20px 0; }
-.btn { flex: 1; padding: 12px; border-radius: 12px; text-align: center; text-decoration: none; font-weight: 700; font-size: 14px; }
-.btn-primary { background: #c8ff3d; color: #0b0b0c; }
-.btn-whatsapp { background: #25D366; color: white; }
+.print-opt {display: none;}
 
-.info-list { display: flex; flex-direction: column; gap: 12px; margin: 20px 0; }
-.info-list a { color: #ddd; text-decoration: none; font-size: 14px; display: flex; gap: 10px; align-items: center; }
+.header { text-align: center; margin-bottom: 20px; margin-top: 30px;}
+.avatar { width: 120px; height: 120px; border-radius: 50%; border: 3px solid white; }
+.header h1 { margin-top: 12px; font-size: 20px; color: #0b0b0c;}
+.header p { color: #0b0b0c; font-size: 14px; margin: 10px 0;  padding: 0 20px;}
+.header .occupation { margin: 4px 0;}
+
+
+.contact-actions { display: flex; gap: 20px; justify-content: center;}
+.btn { background: #0b0b0c; border-radius: 50%; color: #c8ff3d; text-decoration: none; font-weight: 700; font-size: 14px; width: 30px; height: 30px; display: flex; justify-content: center; align-items: center;}
+/*.btn-primary { background: #0b0b0c; color: #c8ff3d; }*/
+.btn-whatsapp { font-size: 18px;}
+
+.info-list { display: flex; flex-direction: column; gap: 12px; margin: auto; width: 100%; max-width: 300px;  margin-top: 50px;}
+.info-list i {margin-right: 10px; margin-left: 50px;}
+.info-list a {margin-left: 10px; color: inherit;}
+/*.info-list a { color: #ddd; text-decoration: none; font-size: 14px; display: flex; gap: 10px; align-items: center; }
 .info-list a i { color: #c8ff3d; width: 20px; }
 
 .qr-section { margin: 20px 0; background: rgba(255,255,255,0.05); padding: 16px; border-radius: 16px; border: 1px dashed rgba(200,255,61,0.3); }
@@ -49,6 +58,22 @@ body {
 .action-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
 .action-grid button { padding: 12px; border-radius: 12px; border: 1px solid rgba(200,255,61,0.3); background: rgba(200,255,61,0.1); color: #c8ff3d; font-weight: 600; cursor: pointer; font-size: 13px; }
 .action-grid button:first-child { grid-column: span 2; background: #c8ff3d; color: #0b0b0c; font-weight: 800; font-size: 15px; }
-.print-btn { grid-column: span 2; }
+.print-btn { grid-column: span 2; }*/
+
+.action-btns { display: flex; flex-direction: column; margin-top: 10%;}
+.action-btns .row { display: flex; justify-content: space-between;}
+.row button {border: none; cursor: pointer; gap: 10px;}
+.print { border-top-right-radius: 40%; border-bottom-right-radius: 40%; width: 23%; background-color: white;}
+.print i {margin-left: 10px;}
+.upi { clip-path: polygon(20% 0%, 100% 0%, 100% 100%, 0% 100%); width: 60%;
+background-color: #0b0b0c; color: white; height: 50px;}
+
+button.save { margin: 10% 5%; padding: 10px 0; border: none; box-shadow: 0 2px 6px 2px darkseagreen;}
+
+button.save:hover { box-shadow: none;}
+
+
+.footer { position: relative; left: 0; bottom: 0; width: 100%; font-size: 8px; background-color: #0b0b0c; color: #ccc; padding: 0 5px; display: flex; justify-content: center; align-items: center;}
+.footer p { text-align: right;}
 
 @media print { .action-grid { display:none; } body { background: white; } .card { box-shadow:none; border:1px solid #ccc; background:white; color:black; } }
