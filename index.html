@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nilesh Medda - Digital Card</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="card">
+    <div class="header">
+      <img src="assets/images/profile.webp" class="avatar" alt="profile">
+      <h1>Nilesh Medda</h1>
+      <p>Web Developer</p>
+      <span class="badge">Available for work</span>
+    </div>
+
+    <!--<div class="contact-actions">
+      <a href="tel:+919836XXXXXX" class="btn btn-primary"><i class="fa-solid fa-phone"></i> Call Now</a>
+      <a href="https://wa.me/919836XXXXXX" class="btn btn-whatsapp"><i class="fa-brands fa-whatsapp"></i> WhatsApp</a>
+    </div>-->
+
+    <div class="info-list">
+      <a href="tel:+919836XXXXXX"><i class="fa-solid fa-phone"></i> +91 9836XXXXXX</a>
+      <a href="mailto:contact.nileshmedda.dev@gmail.com"><i class="fa-solid fa-envelope"></i> contact.nileshmedda.dev@gmail.com</a>
+      <a href="https://maps.google.com/?q=Kolkata"><i class="fa-solid fa-location-dot"></i> Kolkata, West Bengal</a>
+      <a href="https://nileshmedda.in"><i class="fa-solid fa-globe"></i> nileshmedda.in</a>
+    </div>
+
+    <div class="qr-section">
+      <img id="qrImage" alt="QR Code">
+      <p>Scan to open my card</p>
+    </div>
+
+    <div class="action-grid">
+      <button onclick="downloadVCard()">📇 Save Contact</button>
+      <button onclick="shareOnWhatsApp()">🟢 Share WhatsApp</button>
+      <button onclick="nativeShare()">📤 Share</button>
+      <button onclick="downloadQRAsPNG()">🖼️ QR PNG</button>
+      <button onclick="downloadQRAsPDF()">📄 QR PDF</button>
+      <button onclick="window.print()" class="print-btn">🖨️ Print Card</button>
+    </div>
+  </div>
+
+  <script src="js/script.js"></script>
+</body>
+</html>
