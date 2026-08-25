@@ -26,6 +26,11 @@
 <body class="body">
 
   <div class="overlay" onclick="overlayClose()"></div>
+  <div class="lightbox">
+    <div class="qr-section">
+      <img id="qrImage" alt="QR Code">
+    </div>
+  </div>
 
   <div class="card">
 
@@ -48,7 +53,10 @@
     </div>
 
     <div class="about">
-      <img src="assets/images/profile.webp" class="avatar" alt="profile">
+      <div class="profile">
+        <img src="assets/images/profile.webp" class="avatar" alt="profile">
+        <button type="button" class="qr-btn" onclick="lightboxActive()"><i class="fa-sharp fa-solid fa-qrcode"></i></button>
+      </div>
       <p class="name"><span>Nilesh</span> Medda</p>
       <div class="occupation">Freelance Web Developer</div>
       <p class="work">I build <span>modern, responsive and user-friendly websites</span> that help businesses and professionals grow online.</p>

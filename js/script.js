@@ -8,12 +8,6 @@
   address: "Kolkata, West Bengal"
 };
 
-// Auto generate QR on page load
-window.onload = function() {
-  const qrImg = document.getElementById('qrImage');
-  const qrUrl = `https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=${encodeURIComponent(clientData.website)}`;
-  qrImg.src = qrUrl;
-};
 
 // 1. DOWNLOAD VCARD - Save to Contacts
 function downloadVCard() {
@@ -92,7 +86,39 @@ function hamburgerActive() {
 }
 
 function overlayClose() {
-  document.querySelector('.body').classList.remove('active');
-  document.querySelector('.overlay').classList.remove('active');
   document.querySelector('.nav').classList.remove('active');
+  document.querySelector('.qr-section').classList.remove('active');
+  document.querySelector('.lightbox').classList.remove('active');
+  document.querySelector('.overlay').classList.remove('blurred');
+  document.querySelector('.overlay').classList.remove('active');
+  document.querySelector('.body').classList.remove('active');
+}
+
+// CONFIG - Change this for each client
+const clientData = {
+  name: "Nilesh Medda",
+  org: "Web Developer",
+  phone: "+91 9836XXXXXX",
+  email: "contact.nileshmedda.dev@gmail.com",
+  website: window.location.href,
+  address: "Kolkata, West Bengal",
+  logoUrl: "https://digital-vcard-v2.netlify.app/assets/images/my-logo2.png" // <-- ADD YOUR LOGO HERE
+};
+
+// Auto generate QR with logo on page load
+window.onload = function() {
+  const qrImg = document.getElementById('qrImage');
+  
+  // Use QuickChart instead of qrserver
+  const qrUrl = `https://quickchart.io/qr?text=${encodeURIComponent(clientData.website)}&size=250&centerImageUrl=${encodeURIComponent(clientData.logoUrl)}&centerImageSize=50&ecLevel=H&margin=10`;
+  
+  qrImg.src = qrUrl;
+};
+
+function lightboxActive() {
+  document.querySelector('.body').classList.add('active');
+  document.querySelector('.overlay').classList.add('active');
+  document.querySelector('.overlay').classList.add('blurred');
+  document.querySelector('.lightbox').classList.add('active');
+  document.querySelector('.qr-section').classList.add('active');
 }

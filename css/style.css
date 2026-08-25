@@ -26,6 +26,7 @@ body {
   color: var(--accent);
   /*padding: 20px;*/
 }
+body.active { overflow: hidden; overscroll-behavior: none;}
 
 .hamburger-effect { overflow: hidden;}
 
@@ -42,6 +43,17 @@ body {
 }*/
 
 .overlay { position: absolute; z-index: 50; height: 100vh; width: 100vw; display: none; /*background-color: rgba(255,255,255,0.2); backdrop-filter: blur(3px);*/}
+.overlay.active { display: block;}
+.overlay.blurred {backdrop-filter: blur(2px);}
+
+.lightbox { position: absolute; z-index: 100; width: 100%; max-width: 300px; color: var(--accent);
+ background-color: var(--bg); display: none; justify-content: center; align-items: center;}
+.lightbox.active { display: flex;}
+
+.qr-section { margin: 20px 0; background: rgba(255,255,255,0.05); padding: 16px; border-radius: 16px; border: 1px dashed rgba(200,255,61,0.3); display: none;}
+.qr-section img { border-radius: 12px; background: white; padding: 6px; }
+.qr-section p { font-size: 12px; color: #888; margin-top: 8px; }
+.qr-section.active {display: block;}
 
 .card { width: 100%; max-width: 400px; height: 100vh; background: var(--bg); display: grid;}
 
@@ -54,13 +66,10 @@ button { cursor: pointer;}
 .nav { background-color: white; color: black; position: absolute; display: none; flex-direction: column; box-shadow: var(--shadow); z-index: 100; margin-top: 3px; font-size: 10px;}
 .nav span { padding: 5px 20px; border-bottom: 1px solid black;}
 .nav i { padding-left: 10px;}
+.nav.active { display: flex;}
 
 .hamburger { position: absolute; width: 30px; padding: 10px; background: none; border: none; display: flex; flex-direction: column; gap: 4px;}
 .hamburger .dot { width: 5px; height: 5px; background-color: white; border-radius: 50%;}
-
-.body.active { overflow: hidden;}
-.overlay.active { display: block;}
-.nav.active { display: flex;}
 
 .brand { display: flex; align-items: center; gap: 10px; font: 700 20px "Space Grotesk"; justify-self: center;  margin: 20px auto 10px;}
 .brand-logo { display: grid; place-items: center; width: 34px; height: 34px; border: 1px solid var(--accent); border-radius: 10px;}
@@ -68,8 +77,11 @@ button { cursor: pointer;}
 .brand-name span {color: lime;}
 
 .about { text-align: center; margin-bottom: 20px;}
+.profile { display: flex; flex-direction: column; align-items: center;}
 .avatar { width: 120px; height: 120px; border-radius: 50%; border: 3px solid var(--accent); }
-.about .name { margin-top: 12px; font-size: 28px;}
+.qr-btn { position: relative; left: 12%; top: -24px; font-size: 18px; background: black; border: none; border-radius: 3px; padding: 0 3px;
+color: white; border: 1px dashed var(--accent); padding: 0 5px;}
+.about .name { margin-top: -15px; font-size: 28px;}
 .name span {color: var(--primary-txt);}
 .occupation { border: 1px solid var(--accent); font-size: 12px; width: 175px; margin: 10px auto 20px; border-radius: 5px;}
 .work { margin: 4px 0; padding: 0 20px; font-size: 14px; color: var(--scnd-txt);}
@@ -83,13 +95,9 @@ button { cursor: pointer;}
 .info-list i {margin-right: 10px; margin-left: 50px;}
 .info-list a {margin-left: 10px; color: var(--scnd-txt);}
 /*.info-list a { color: #ddd; text-decoration: none; font-size: 14px; display: flex; gap: 10px; align-items: center; }
-.info-list a i { color: #c8ff3d; width: 20px; }
+.info-list a i { color: #c8ff3d; width: 20px; }*/
 
-.qr-section { margin: 20px 0; background: rgba(255,255,255,0.05); padding: 16px; border-radius: 16px; border: 1px dashed rgba(200,255,61,0.3); }
-.qr-section img { width: 70px; border-radius: 12px; background: white; padding: 6px; }
-.qr-section p { font-size: 12px; color: #888; margin-top: 8px; }
-
-.action-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+/*.action-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
 .action-grid button { padding: 12px; border-radius: 12px; border: 1px solid rgba(200,255,61,0.3); background: rgba(200,255,61,0.1); color: #c8ff3d; font-weight: 600; cursor: pointer; font-size: 13px; }
 .action-grid button:first-child { grid-column: span 2; background: #c8ff3d; color: #0b0b0c; font-weight: 800; font-size: 15px; }
 .print-btn { grid-column: span 2; }*/
