@@ -27,6 +27,8 @@ body {
   /*padding: 20px;*/
 }
 
+.hamburger-effect { overflow: hidden;}
+
 /*.card {
   width: 100%;
   max-width: 380px;
@@ -39,15 +41,30 @@ body {
   color: #fff;
 }*/
 
+.overlay { position: absolute; z-index: 50; height: 100vh; width: 100vw; display: none; /*background-color: rgba(255,255,255,0.2); backdrop-filter: blur(3px);*/}
+
 .card { width: 100%; max-width: 400px; height: 100vh; background: var(--bg); display: grid;}
 
 button { cursor: pointer;}
 
 .print-opt {display: none;}
 
+.header { display: grid;}
+
+.nav { background-color: white; color: black; position: absolute; display: none; flex-direction: column; box-shadow: var(--shadow); z-index: 100; margin-top: 3px; font-size: 10px;}
+.nav span { padding: 5px 20px; border-bottom: 1px solid black;}
+.nav i { padding-left: 10px;}
+
+.hamburger { position: absolute; width: 30px; padding: 10px; background: none; border: none; display: flex; flex-direction: column; gap: 4px;}
+.hamburger .dot { width: 5px; height: 5px; background-color: white; border-radius: 50%;}
+
+.body.active { overflow: hidden;}
+.overlay.active { display: block;}
+.nav.active { display: flex;}
+
 .brand { display: flex; align-items: center; gap: 10px; font: 700 20px "Space Grotesk"; justify-self: center;  margin: 20px auto 10px;}
 .brand-logo { display: grid; place-items: center; width: 34px; height: 34px; border: 1px solid var(--accent); border-radius: 10px;}
-.brand-name {color: var(--primary-txt);}
+.brand-name {color: var(--primary-txt); font-size: 26px;}
 .brand-name span {color: lime;}
 
 .about { text-align: center; margin-bottom: 20px;}
@@ -78,8 +95,8 @@ button { cursor: pointer;}
 .print-btn { grid-column: span 2; }*/
 
 .action-btns { display: flex; flex-direction: column; margin: 10% 10%; gap: 30px;}
-.print { border-top-right-radius: 40%; border-bottom-right-radius: 40%; width: 23%; background-color: white;}
-.print i {margin-left: 10px;}
+/*.print { border-top-right-radius: 40%; border-bottom-right-radius: 40%; width: 23%; background-color: white;}
+.print i {margin-left: 10px;}*/
 .upi { background-color: #efefef; height: 40px; border: none; border-radius: var(--radius); box-shadow: var(--shadow);}
 .save { background-color: var(--accent); padding: 10px 0; border: none; border-radius: var(--radius); box-shadow: var(--shadow);}
 

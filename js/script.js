@@ -1,5 +1,5 @@
 // CONFIG - Change this for each client
-const clientData = {
+/*const clientData = {
   name: "Nilesh Medda",
   org: "Web Developer",
   phone: "+91 9836XXXXXX",
@@ -83,4 +83,16 @@ async function downloadQRAsPDF() {
   doc.text("Scan to visit my digital card", 20, 115);
 
   doc.save(`${clientData.name}_QR.pdf`);
+}*/
+
+function hamburgerActive() {
+  document.querySelector('.body').classList.add('active');
+  document.querySelector('.overlay').classList.add('active');
+  document.querySelector('.nav').classList.add('active');
+}
+
+function overlayClose() {
+  document.querySelector('.body').classList.remove('active');
+  document.querySelector('.overlay').classList.remove('active');
+  document.querySelector('.nav').classList.remove('active');
 }

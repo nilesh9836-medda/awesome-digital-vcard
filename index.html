@@ -15,12 +15,30 @@
 
   <link rel="stylesheet" href="css/style.css">
 </head>
-<body>
+<body class="body">
+
+  <div class="overlay" onclick="overlayClose()"></div>
+
   <div class="card">
-    <div class="brand">
-      <img src="assets/images/my-logo2.png" alt="logo" srcset="" onerror="this.style.display='none'" class="brand-logo">
-      <div class="brand-name">Nilesh <span>.</span></div>
+
+    <div class="header">
+      <nav class="nav">
+        <span class="share">Share<i class="fa-solid fa-share-nodes"></i></span>
+        <span class="print" onclick="" aria-label="Click button to print">Print<i class="fa-solid fa-print"></i></span>
+      </nav>
+
+      <button class="hamburger" type="button" onclick="hamburgerActive()">
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+      </button>
+
+      <div class="brand">
+        <img src="assets/images/my-logo2.png" alt="logo" srcset="" onerror="this.style.display='none'" class="brand-logo">
+        <div class="brand-name">Nilesh <span>.</span></div>
+      </div>
     </div>
+
     <div class="about">
       <img src="assets/images/profile.webp" class="avatar" alt="profile">
       <p class="name"><span>Nilesh</span> Medda</p>
