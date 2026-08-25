@@ -68,7 +68,7 @@ button { cursor: pointer;}
 .nav i { padding-left: 10px;}
 .nav.active { display: flex;}
 
-.hamburger { position: absolute; width: 30px; padding: 10px; background: none; border: none; display: flex; flex-direction: column; gap: 4px;}
+.hamburger { position: absolute; width: 30px; padding: 20px; background: none; border: none; display: flex; flex-direction: column; gap: 4px;}
 .hamburger .dot { width: 5px; height: 5px; background-color: white; border-radius: 50%;}
 
 .brand { display: flex; align-items: center; gap: 10px; font: 700 20px "Space Grotesk"; justify-self: center;  margin: 20px auto 10px;}
