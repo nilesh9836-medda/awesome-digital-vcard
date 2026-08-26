@@ -172,7 +172,7 @@ END:VCARD`;
   URL.revokeObjectURL(url);
 }*/
 
-async function downloadVCard() {
+function downloadVCard() {
 
     const vcard = [
         "BEGIN:VCARD",
@@ -191,69 +191,16 @@ async function downloadVCard() {
         { type: "text/vcard" }
     );
 
-    const fileName =
-        `${clientData.name.replace(/\s+/g, "_")}.vcf`;
-
-    // Detect mobile devices
-    const isMobile = /Android|iPhone|iPad|iPod/i.test(
-        navigator.userAgent
-    );
-
-    // ==========================================
-    // 📱 MOBILE
-    // Try native share sheet
-    // ==========================================
-    if (isMobile && navigator.share && navigator.canShare) {
-
-        try {
-
-            const file = new File(
-                [blob],
-                fileName,
-                { type: "text/vcard" }
-            );
-
-            if (navigator.canShare({ files: [file] })) {
-
-                await navigator.share({
-                    title: `Save ${clientData.name}`,
-                    text: "Save this contact",
-                    files: [file]
-                });
-
-                return;
-            }
-
-        } catch (error) {
-
-            // User cancelled the share sheet
-            if (error.name === "AbortError") {
-                return;
-            }
-
-            console.log(
-                "Native sharing unavailable. Using download."
-            );
-        }
-    }
-
-    // ==========================================
-    // 💻 DESKTOP / FALLBACK
-    // Directly download VCF
-    // ==========================================
-
     const url = URL.createObjectURL(blob);
 
-    const link = document.createElement("a");
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = `${clientData.name.replace(/\s+/g, "_")}.vcf`;
 
-    link.href = url;
-    link.download = fileName;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
 
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
-
-    // Give the browser time to start the download
     setTimeout(() => {
         URL.revokeObjectURL(url);
     }, 1000);
