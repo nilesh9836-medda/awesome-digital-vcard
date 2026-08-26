@@ -172,29 +172,71 @@ END:VCARD`;
   URL.revokeObjectURL(url);
 }*/
 
-function downloadVCard() {
-  const vcard = `BEGIN:VCARD
-Content-Type: text/vcard
-Content-Disposition: attachment
-VERSION:3.0
-FN:${clientData.name}
-ORG:${clientData.org}
-TEL;TYPE=CELL:${clientData.phone}
-EMAIL:${clientData.email}
-URL:${clientData.website}
-ADR:${clientData.address}
-END:VCARD`;
+async function downloadVCard() {
 
-  const blob = new Blob([vcard], { type: "text/vcard" });
-  const url = URL.createObjectURL(blob);
+    const vcard = [
+        "BEGIN:VCARD",
+        "VERSION:3.0",
+        `FN:${clientData.name}`,
+        `ORG:${clientData.org}`,
+        `TEL;TYPE=CELL:${clientData.phone}`,
+        `EMAIL:${clientData.email}`,
+        `URL:${clientData.website}`,
+        `ADR;TYPE=WORK:;;${clientData.address};;;;`,
+        "END:VCARD"
+    ].join("\r\n");
 
-  const a = document.createElement("a");
-  a.href = url;
-  a.download = `${clientData.name.replace(/\s+/g, '_')}.vcf`; // this is the key part
-  document.body.appendChild(a);
-  a.click();
-  document.body.removeChild(a);
+    const blob = new Blob(
+        [vcard],
+        { type: "text/vcard;charset=utf-8" }
+    );
 
-  // cleanup
-  setTimeout(() => URL.revokeObjectURL(url), 1000);
+    const fileName =
+        `${clientData.name.replace(/\s+/g, "_")}.vcf`;
+
+    const file = new File(
+        [blob],
+        fileName,
+        { type: "text/vcard" }
+    );
+
+    // 📱 Mobile: open native share sheet
+    if (
+        navigator.share &&
+        navigator.canShare &&
+        navigator.canShare({ files: [file] })
+    ) {
+        try {
+            await navigator.share({
+                title: `Save ${clientData.name}`,
+                text: "Save this contact",
+                files: [file]
+            });
+
+            return;
+        } catch (error) {
+
+            // User cancelled sharing
+            if (error.name === "AbortError") {
+                return;
+            }
+
+            console.error("Share failed:", error);
+        }
+    }
+
+    // 💻 Fallback for browsers without file sharing
+    const url = URL.createObjectURL(blob);
+
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = fileName;
+
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+
+    setTimeout(() => {
+        URL.revokeObjectURL(url);
+    }, 1000);
 }
