@@ -88,6 +88,7 @@ function hamburgerActive() {
 function overlayClose() {
   document.querySelector('.nav').classList.remove('active');
   document.querySelector('.qr-section').classList.remove('active');
+  document.querySelector('.upi-qr').classList.remove('active');
   document.querySelector('.lightbox').classList.remove('active');
   document.querySelector('.overlay').classList.remove('blurred');
   document.querySelector('.overlay').classList.remove('active');
@@ -121,4 +122,31 @@ function lightboxActive() {
   document.querySelector('.overlay').classList.add('blurred');
   document.querySelector('.lightbox').classList.add('active');
   document.querySelector('.qr-section').classList.add('active');
+}
+
+function payment() {
+  document.querySelector('.body').classList.add('active');
+  document.querySelector('.overlay').classList.add('active');
+  document.querySelector('.overlay').classList.add('blurred');
+  document.querySelector('.lightbox').classList.add('active');
+  document.querySelector('.upi-qr').classList.add('active');
+}
+
+async function copyID() {
+  const btn = document.querySelector('.cpy');
+  let elem = document.querySelector('.id-txt');
+  try {
+    await navigator.clipboard.writeText(elem.textContent);
+    btn.innerText = "✓ Copied!";
+    setTimeout(()=> btn.innerText = "Copy", 2000);
+  } catch (err) {
+    // fallback for old phones
+    const input = document.createElement('input');
+    input.value = elem.textContent;
+    document.body.appendChild(input);
+    input.select();
+    document.execCommand('copy');
+    document.body.removeChild(input);
+    btn.innerText = "✓ Copied!";
+  }
 }
