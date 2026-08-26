@@ -10,6 +10,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="preload" href="assets/images/bg3.webp" as="image" fetchpriority="high">
   <link rel="preload" href="assets/images/my-logo2.png" as="image" fetchpriority="high">
   <link rel="preload" href="assets/images/profile.png" as="image" fetchpriority="high">
 
@@ -26,15 +27,6 @@
 <body class="body">
 
   <div class="overlay" onclick="overlayClose()"></div>
-  <div class="lightbox">
-    <div class="qr-section">
-      <img id="qrImage" alt="QR Code">
-    </div>
-    <div class="upi-qr">
-      <img src="assets/images/vector_demoQR.svg" alt="UPI Demo QR">
-      <div class="upi-id"><span class="id-txt">upiID@upi</span><button class="cpy" type="button" onclick="copyID()">Copy</button></div>
-    </div>
-  </div>
 
   <div class="card">
 
@@ -51,14 +43,14 @@
       </button>
 
       <div class="brand">
-        <img src="assets/images/my-logo2.png" alt="logo" srcset="" onerror="this.style.display='none'" class="brand-logo">
+        <img src="assets/images/my-logo2.png" alt="logo" srcset="" onerror="this.style.display='none'" class="brand-logo" height="34px" width="34px">
         <div class="brand-name">Nilesh <span>.</span></div>
       </div>
     </div>
 
     <div class="about">
       <div class="profile">
-        <img src="assets/images/profile.webp" class="avatar" alt="profile">
+        <img src="assets/images/profile.webp" class="avatar" alt="profile" height="120px" width="120px">
         <button type="button" class="qr-btn" onclick="lightboxActive()"><i class="fa-sharp fa-solid fa-qrcode"></i></button>
       </div>
       <p class="name"><span>Nilesh</span> Medda</p>
@@ -108,6 +100,16 @@
       <div class="social"></div>
       <p class="copyright">&copy2026 Nilesh Medda · All rights reserved.</p>
     </footer>
+  </div>
+
+  <div class="lightbox">
+    <div class="qr-section">
+      <img id="qrImage" alt="QR Code">
+    </div>
+    <div class="upi-qr">
+      <img src="assets/images/vector_demoQR.svg" alt="UPI Demo QR">
+      <div class="upi-id"><span class="id-txt">upiID@upi</span><button class="cpy" type="button" onclick="copyID()">Copy</button></div>
+    </div>
   </div>
 
   <script src="js/script.js"></script>
