@@ -188,54 +188,72 @@ async function downloadVCard() {
 
     const blob = new Blob(
         [vcard],
-        { type: "text/vcard;charset=utf-8" }
+        { type: "text/vcard" }
     );
 
     const fileName =
         `${clientData.name.replace(/\s+/g, "_")}.vcf`;
 
-    const file = new File(
-        [blob],
-        fileName,
-        { type: "text/vcard" }
+    // Detect mobile devices
+    const isMobile = /Android|iPhone|iPad|iPod/i.test(
+        navigator.userAgent
     );
 
-    // 📱 Mobile: open native share sheet
-    if (
-        navigator.share &&
-        navigator.canShare &&
-        navigator.canShare({ files: [file] })
-    ) {
-        try {
-            await navigator.share({
-                title: `Save ${clientData.name}`,
-                text: "Save this contact",
-                files: [file]
-            });
+    // ==========================================
+    // 📱 MOBILE
+    // Try native share sheet
+    // ==========================================
+    if (isMobile && navigator.share && navigator.canShare) {
 
-            return;
+        try {
+
+            const file = new File(
+                [blob],
+                fileName,
+                { type: "text/vcard" }
+            );
+
+            if (navigator.canShare({ files: [file] })) {
+
+                await navigator.share({
+                    title: `Save ${clientData.name}`,
+                    text: "Save this contact",
+                    files: [file]
+                });
+
+                return;
+            }
+
         } catch (error) {
 
-            // User cancelled sharing
+            // User cancelled the share sheet
             if (error.name === "AbortError") {
                 return;
             }
 
-            console.error("Share failed:", error);
+            console.log(
+                "Native sharing unavailable. Using download."
+            );
         }
     }
 
-    // 💻 Fallback for browsers without file sharing
+    // ==========================================
+    // 💻 DESKTOP / FALLBACK
+    // Directly download VCF
+    // ==========================================
+
     const url = URL.createObjectURL(blob);
 
-    const a = document.createElement("a");
-    a.href = url;
-    a.download = fileName;
+    const link = document.createElement("a");
 
-    document.body.appendChild(a);
-    a.click();
-    document.body.removeChild(a);
+    link.href = url;
+    link.download = fileName;
 
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+
+    // Give the browser time to start the download
     setTimeout(() => {
         URL.revokeObjectURL(url);
     }, 1000);
