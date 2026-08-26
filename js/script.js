@@ -150,3 +150,24 @@ async function copyID() {
     btn.innerText = "✓ Copied!";
   }
 }
+
+// DOWNLOAD VCARD - Save to Contacts
+function downloadVCard() {
+  const vcard = `BEGIN:VCARD
+VERSION:3.0
+FN:${clientData.name}
+ORG:${clientData.org}
+TEL;TYPE=CELL:${clientData.phone}
+EMAIL:${clientData.email}
+URL:${clientData.website}
+ADR:${clientData.address}
+END:VCARD`;
+
+  const blob = new Blob([vcard], { type: 'text/vcard' });
+  const url = URL.createObjectURL(blob);
+  const link = document.createElement('a');
+  link.href = url;
+  link.download = `${clientData.name.replace(/\s+/g, '_')}.vcf`;
+  link.click();
+  URL.revokeObjectURL(url);
+}
