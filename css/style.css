@@ -69,7 +69,7 @@ button { cursor: pointer;}
 
 .header { display: grid;}
 
-.nav { background-color: white; color: black; position: absolute; display: none; flex-direction: column; box-shadow: var(--shadow); z-index: 100; margin-top: 3px; font-size: 10px;}
+.nav { background-color: white; color: black; position: absolute; display: none; flex-direction: column; box-shadow: var(--shadow); z-index: 100; margin-top: 3px; font-size: 14px;}
 .nav span { padding: 5px 20px; border-bottom: 1px solid black;}
 .nav i { padding-left: 10px;}
 .nav.active { display: flex;}
