@@ -109,11 +109,13 @@ const clientData = {
 // Auto generate QR with logo on page load
 window.onload = function() {
   const qrImg = document.getElementById('qrImage');
+  const printQR = document.getElementById('print-qr-img');
   
   // Use QuickChart instead of qrserver
   const qrUrl = `https://quickchart.io/qr?text=${encodeURIComponent(clientData.website)}&size=250&centerImageUrl=${encodeURIComponent(clientData.logoUrl)}&centerImageSize=50&ecLevel=H&margin=10`;
   
   qrImg.src = qrUrl;
+  printQR.src = qrUrl;
 };
 
 function lightboxActive() {
@@ -148,6 +150,23 @@ async function copyID() {
     document.execCommand('copy');
     document.body.removeChild(input);
     btn.innerText = "✓ Copied!";
+  }
+}
+
+function shareCard() {
+  // Check if browser supports sharing
+  if (navigator.share) {
+    navigator.share({
+      title: `${clientData.name} card`,
+      text: `Check out ${clientData.name} card`,
+      url: window.location.href
+    })
+   .then(() => console.log('Shared successfully'))
+   .catch((error) => console.log('Error sharing:', error));
+  } else {
+    // Fallback - copy link
+    navigator.clipboard.writeText(window.location.href);
+    alert('Link copied! ' + window.location.href);
   }
 }
 

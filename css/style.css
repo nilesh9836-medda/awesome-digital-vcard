@@ -70,7 +70,7 @@ button { cursor: pointer;}
 .header { display: grid;}
 
 .nav { background-color: white; color: black; position: absolute; display: none; flex-direction: column; box-shadow: var(--shadow); z-index: 100; margin-top: 3px; font-size: 14px;}
-.nav span { padding: 5px 20px; border-bottom: 1px solid black;}
+.nav span { padding: 5px 20px; border-bottom: 1px solid black; cursor: pointer;}
 .nav i { padding-left: 10px;}
 .nav.active { display: flex;}
 
@@ -119,4 +119,35 @@ color: white; border: 1px dashed var(--accent); padding: 0 5px;}
 
 .footer { position: relative; left: 0; bottom: 0; width: 100%; font-size: 8px; background-color: #0b0b0c; color: #ccc; padding: 10px; border-top: 1px solid var(--accent); display: flex; justify-content: center; align-items: center;}
 
-@media print { .action-grid { display:none; } body { background: white; } .card { box-shadow:none; border:1px solid #ccc; background:white; color:black; } }
+.print-out {background-color: white !important; font-size: 10px; color: var(--accent);-webkit-print-color-adjust: exact !important; print-color-adjust: exact !important;}
+.card-front{ width: 100%; max-width: 350px; height: 200px; aspect-ratio: 3.5 / 2;
+  display: grid; align-items: start; border-bottom: 1px solid var(--accent);
+   border-radius: 5px; margin-bottom: 30px;}
+.card-front .bg-img { border-radius: 5px; object-fit: cover; object-position: center; z-index: 100;}
+.card-front .container { width: 350px; height: 200px; background-color: none; z-index: 200; position: relative; top: -200px; display: flex; justify-content: center; align-items: center;}
+.card-front .print-logo { z-index: 300; object-position: center;}
+.print-website {z-index: 300;  top: -250px; position: relative; background-color: transparent; padding: 5px; font-size: 14px; text-align: center; color: var(--primary-txt);}
+
+.card-rear { width: 100%; max-width: 350px; height: 200px; aspect-ratio: 3.5 / 2; background-color: var(--bg2) !important; border-top: 1px solid var(--accent) !important; padding: 20px; border-radius: 5px; display: grid; grid-template-columns: repeat(3, 1fr); grid-template-rows: 1fr 1fr; row-gap: 20px; -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important;}
+.print-profile { grid-column: 1 / 3;}
+.print-name { font-size: 20px; margin-bottom: 5px;}
+.print-name span {color: var(--primary-txt)}
+.print-work { font-size: 8px; margin-top: 8px;}
+.print-avatar { justify-self: flex-end;}
+.print-avatar img { border: 2px solid var(--accent); border-radius: 50%;}
+.print-contact { grid-column: 1 / 3; display: flex; flex-direction: column; align-items: flex-start; justify-content: center; gap: 5px;}
+.print-contact i { margin-right: 5px;}
+.print-qr { justify-self: flex-end;}
+
+.print-out { display: none;}
+
+@media print { 
+  * {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  body { background: white;}
+  .digital { display: none;}
+  .print-out { display: block; background: var(--bg2) !important; border: 1px solid var(--bordr) !important;}
+}
