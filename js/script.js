@@ -153,6 +153,23 @@ async function copyID() {
   }
 }
 
+function shareCard() {
+  // Check if browser supports sharing
+  if (navigator.share) {
+    navigator.share({
+      title: `${clientData.name} card`,
+      text: `Check out ${clientData.name} card`,
+      url: window.location.href
+    })
+   .then(() => console.log('Shared successfully'))
+   .catch((error) => console.log('Error sharing:', error));
+  } else {
+    // Fallback - copy link
+    navigator.clipboard.writeText(window.location.href);
+    alert('Link copied! ' + window.location.href);
+  }
+}
+
 // DOWNLOAD VCARD - Save to Contacts
 /*function downloadVCard() {
   const vcard = `BEGIN:VCARD
