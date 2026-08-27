@@ -109,11 +109,13 @@ const clientData = {
 // Auto generate QR with logo on page load
 window.onload = function() {
   const qrImg = document.getElementById('qrImage');
+  const printQR = document.getElementById('print-qr-img');
   
   // Use QuickChart instead of qrserver
   const qrUrl = `https://quickchart.io/qr?text=${encodeURIComponent(clientData.website)}&size=250&centerImageUrl=${encodeURIComponent(clientData.logoUrl)}&centerImageSize=50&ecLevel=H&margin=10`;
   
   qrImg.src = qrUrl;
+  printQR.src = qrUrl;
 };
 
 function lightboxActive() {

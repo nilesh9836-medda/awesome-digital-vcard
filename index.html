@@ -15,6 +15,14 @@
   <link rel="preload" href="assets/images/profile.png" as="image" fetchpriority="high">
 
   <link rel="stylesheet" href="css/style.css">
+  <style>
+    .print-out { display: none;}
+    @media print { 
+      body { background: white;}
+      .digital { display: none;}
+      .print-out { display: block;}
+    }
+  </style>
 
   <!--FAVICON ICONS-->
   <link rel="shortcut icon" href="/assets/icons/favicon.ico" type="image/x-icon">
@@ -28,12 +36,12 @@
 
   <div class="overlay" onclick="overlayClose()"></div>
 
-  <div class="card">
+  <div class="card digital">
 
     <div class="header">
       <nav class="nav">
         <span class="share">Share<i class="fa-solid fa-share-nodes"></i></span>
-        <span class="print" onclick="" aria-label="Click button to print">Print<i class="fa-solid fa-print"></i></span>
+        <span class="print" onclick="window.print()" aria-label="Click button to print">Print<i class="fa-solid fa-print"></i></span>
       </nav>
 
       <button class="hamburger" type="button" onclick="hamburgerActive()">
@@ -109,6 +117,40 @@
     <div class="upi-qr">
       <img src="assets/images/vector_demoQR.svg" alt="UPI Demo QR">
       <div class="upi-id"><span class="id-txt">upiID@upi</span><button class="cpy" type="button" onclick="copyID()">Copy</button></div>
+    </div>
+  </div>
+
+  <div class="print-out">
+    <div class="card-front">
+      <img src="assets/images/bg3-flip.png" alt="background image of front card" class="bg-img">
+      <div class="container">
+        <img src="assets/images/my-logo2.png" alt="logo" class="print-logo" width="80px" height="80px">
+      </div>
+      <p class="print-website">www.nileshmedda.in</p>
+    </div>
+
+    <div class="card-rear">
+      <div class="print-profile">
+        <div class="print-name"><span>Nilesh</span> Medda</div>
+        <div class="print-occup">Freelance Web Developer</div>
+        <div class="print-work">I build modern, responsive and user-friendly websites that help businesses and professionals grow online.</div>
+      </div>
+
+      <div class="print-avatar">
+        <img src="assets/images/profile.webp" alt="profile" height="70px" width="70px">
+      </div>
+
+      <div class="print-contact">
+        <p><i class="fa-solid fa-phone"></i>+91 9836XXXXXX</a></p>
+        <p><i class="fa-brands fa-whatsapp"></i> +91 8723XXXXXX</p>
+        <p><i class="fa-solid fa-envelope"></i>contact.nileshmedda.dev@gmail.com</p>
+        <p><i class="fa-solid fa-location-dot"></i>Kolkata, West Bengal</a></p>
+      </div>
+
+      <div class="print-qr">
+        <img id="print-qr-img" alt="QR code" width="65px" height="65px">
+      </div>
+
     </div>
   </div>
 
