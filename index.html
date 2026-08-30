@@ -3,10 +3,34 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Nilesh Medda - Digital Card</title>
+
+  <!-- Primary Meta Tags -->
+  <title>2-in-1 Digital + Printable Business Card | by Nilesh . Web Developer</title>
+  <meta name="title" content="2-in-1 Digital + Printable Business Card | by Nilesh . Web Developer">
+  <meta name="description" content="A digital + printable business card designed for modern professionals and businesses. Includes a QR code, Save Contact, sharing, WhatsApp, UPI payment, social links, and a print-ready PDF.">
+  <meta name="keywords" content="digital business card, printable business card, modern professionals business card, business card for buinesses, business card with QR code, business card with save contact, business card with sharing, WhatsApp, business card with UPI payment, business card with social links, business card with print-ready PDF">
+  <meta name="author" content="Nilesh Medda">
+  <meta name="robots" content="index, follow">
+
+  <!-- Open Graph / Facebook / WhatsApp -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://awesome-digital-vcard.pages.dev/">
+  <meta property="og:title" content="2-in-1 Digital + Printable Business Card | by Nilesh . Web Developer">
+  <meta property="og:description" content="A digital + printable business card designed for modern professionals and businesses. Includes a QR code, Save Contact, sharing, WhatsApp, UPI payment, social links, and a print-ready PDF.">
+  <meta property="og:image" content="https://awesome-digital-vcard.pages.dev/assets/images/busineass-card-page.webp">
+
+  <!-- Twitter Card -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="https://awesome-digital-vcard.pages.dev/">
+  <meta property="twitter:title" content="2-in-1 Digital + Printable Business Card | by Nilesh . Web Developer">
+  <meta property="twitter:description" content="A digital + printable business card designed for modern professionals and businesses. Includes a QR code, Save Contact, sharing, WhatsApp, UPI payment, social links, and a print-ready PDF.">
+  <meta property="twitter:image" content="https://awesome-digital-vcard.pages.dev/assets/images/busineass-card-page.webp">
+
+
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 
+  <!--Preload Content-->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
@@ -22,6 +46,10 @@
       .digital { display: none;}
       .print-out { display: block;}
     }
+
+    @media screen and (max-width: 400px) {
+      body { background: var(--bg);}
+    }
   </style>
 
   <!--FAVICON ICONS-->
@@ -31,6 +59,75 @@
   <link rel="icon" type="image/png" sizes="16x16" href="/assets/icons/favicon-16x16.png">
   <link rel="manifest" href="/assets/icons/site.webmanifest">
 
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "@id": "https://awesome-digital-vcard.pages.dev/#webpage",
+      "url": "https://awesome-digital-vcard.pages.dev/",
+      "name": "2-in-1 Digital + Printable Business Card | by Nilesh . Web Developer",
+      "description": "A digital + printable business card designed for modern professionals and businesses. Includes a QR code, Save Contact, sharing, WhatsApp, UPI payment, social links, and a print-ready PDF.",
+      "primaryImageOfPage": {
+        "@type": "ImageObject",
+        "url": "https://awesome-digital-vcard.pages.dev/assets/images/busineass-card-page.webp"
+      },
+      "inLanguage": "en",
+      "copyrightYear": 2026,
+      "copyrightHolder": {
+        "@id": "https://awesome-digital-vcard.pages.dev/#person"
+      }
+    },
+    {
+      "@type": "Person",
+      "@id": "https://awesome-digital-vcard.pages.dev/#person",
+      "name": "Nilesh Medda",
+      "jobTitle": "Freelance Web Developer",
+      "description": "I build modern, responsive and user-friendly websites that help businesses and professionals grow online.",
+      "image": "https://awesome-digital-vcard.pages.dev/assets/images/profile.webp",
+      "url": "https://nileshmedda.in",
+      "email": "mailto:contact.nileshmedda.dev@gmail.com",
+      "telephone": "+919836XXXXXX",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Kolkata",
+        "addressRegion": "West Bengal",
+        "addressCountry": "IN"
+      },
+      "sameAs": [
+        "https://www.linkedin.com/",
+        "https://www.facebook.com/",
+        "https://www.instagram.com",
+        "https://github.com"
+      ],
+      "worksFor": {
+        "@id": "https://awesome-digital-vcard.pages.dev/#business"
+      }
+    },
+    {
+      "@type": "ProfessionalService",
+      "@id": "https://awesome-digital-vcard.pages.dev/#business",
+      "name": "Nilesh Medda - Web Development Services",
+      "url": "https://nileshmedda.in",
+      "logo": "https://awesome-digital-vcard.pages.dev/assets/images/logo-192x192.webp",
+      "image": "https://awesome-digital-vcard.pages.dev/assets/images/profile.webp",
+      "telephone": "+919836XXXXXX",
+      "email": "contact.nileshmedda.dev@gmail.com",
+      "priceRange": "$$",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Kolkata",
+        "addressRegion": "West Bengal",
+        "addressCountry": "IN"
+      },
+      "founder": {
+        "@id": "https://awesome-digital-vcard.pages.dev/#person"
+      }
+    }
+  ]
+}
+</script>
 </head>
 <body class="body">
 
@@ -81,7 +178,7 @@
       <p><i class="fa-solid fa-location-dot"></i><a href="https://maps.google.com/?q=Kolkata" target="_blank" rel="noopener noreferrer" aria-label="Check location on Google Map">Kolkata, West Bengal</a></p>
       <p><i class="fa-solid fa-globe"></i><a href="https://nileshmedda.in" target="_blank" rel="noopener noreferrer" aria-label="Tap to open business website">www.nileshmedda.in</a></p>
     </div>
-    
+
     <div class="action-btns">
       <!--<button type="button" class="print" onclick="" aria-label="Click button to print">Print<i class="fa-solid fa-print" style="color: rgb(0,0,0);"></i></button>-->
       <button type="button" class="upi" onclick="payment()"  aria-label="Click button to do UPI payment">

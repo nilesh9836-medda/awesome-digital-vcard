@@ -18,7 +18,7 @@ html { overflow-x: hidden;}
 body {
   font-family: 'Inter', sans-serif;
   font-display: swap;
-  background: url(../assets/images/bg3-1.webp) center / cover no-repeat; width: 100%;
+  background: url(/assets/images/bg3-1.webp) center / cover no-repeat; width: 100%;
   background-size: cover;
   min-height: 100vh;
   display: flex;
@@ -132,4 +132,8 @@ color: white; border: 1px dashed var(--accent); padding: 0 5px;}
   body { background: white;}
   .digital { display: none;}
   .print-out { display: block; background: var(--bg2) !important; border: 1px solid var(--bordr) !important;}
+}
+
+@media screen and (max-width: 400px) {
+  body { background: var(--bg);}
 }
