@@ -103,7 +103,8 @@ const clientData = {
   email: "contact.nileshmedda.dev@gmail.com",
   website: window.location.href,
   address: "Kolkata, West Bengal",
-  logoUrl: "https://digital-vcard-v2.netlify.app/assets/images/my-logo2.png" // <-- ADD YOUR LOGO HERE
+  logoUrl: "https://awesome-digital-vcard.pages.dev/assets/images/my-logo2.png", // <-- ADD YOUR LOGO HERE
+  qrLogo: "https://awesome-digital-vcard.pages.dev/assets/icons/favicon-32x32.png"
 };
 
 // Auto generate QR with logo on page load
@@ -112,7 +113,7 @@ window.onload = function() {
   const printQR = document.getElementById('print-qr-img');
   
   // Use QuickChart instead of qrserver
-  const qrUrl = `https://quickchart.io/qr?text=${encodeURIComponent(clientData.website)}&size=250&centerImageUrl=${encodeURIComponent(clientData.logoUrl)}&centerImageSize=50&ecLevel=H&margin=10`;
+  const qrUrl = `https://quickchart.io/qr?text=${encodeURIComponent(clientData.website)}&size=250&centerImageUrl=${encodeURIComponent(clientData.qrLogo)}&centerImageSize=50&ecLevel=H&margin=10`;
   
   qrImg.src = qrUrl;
   printQR.src = qrUrl;
